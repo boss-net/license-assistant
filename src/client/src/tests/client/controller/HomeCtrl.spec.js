@@ -283,7 +283,7 @@ describe('Home Controller', function () {
                 return {
                     then: function () { }
                 };
-            } else if (url.indexOf('/static/cla-assistant.json') > -1) {
+            } else if (url.indexOf('/static/license-assistant.json') > -1) {
                 return {
                     then: function (cb) {
                         cb({

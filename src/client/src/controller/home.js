@@ -46,7 +46,7 @@ module.controller('HomeCtrl', ['$rootScope', '$scope', '$RPCService', '$RAW', '$
         $scope.users = [];
         $scope.user = {};
         $scope.isLoading = false;
-        $scope.showActivity = $location.host().indexOf('cla-assistant.io') > -1;
+        $scope.showActivity = $location.host().indexOf('boss-net.github.io/license-assistant') > -1;
 
         $scope.logAdminIn = function () {
             $window.location.href = '/auth/github';
@@ -294,7 +294,7 @@ module.controller('HomeCtrl', ['$rootScope', '$scope', '$RPCService', '$RAW', '$
         };
 
         $scope.getDefaultClaFiles = function () {
-            var promise = $RAW.get('/static/cla-assistant.json');
+            var promise = $RAW.get('/static/license-assistant.json');
             promise.then(function (res) {
                 $scope.defaultClas = res.data['default-cla'];
             });

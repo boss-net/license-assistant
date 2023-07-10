@@ -86,4 +86,4 @@ jobs:
           docker push eu.gcr.io/boss-net/license-assistant:${GITHUB_REF:10}
       - name: deploy to staging cloud run service
         if: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
-        run: gcloud --quiet --project license-assistant beta run deploy cla-assistant-staging --platform managed --region europe-west1 --image eu.gcr.io/boss-net/license-assistant:${{ github.event.inputs.ref || github.sha }}
+        run: gcloud --quiet --project license-assistant beta run deploy license-assistant-staging --platform managed --region europe-west1 --image eu.gcr.io/boss-net/license-assistant:${{ github.event.inputs.ref || github.sha }}

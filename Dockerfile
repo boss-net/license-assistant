@@ -1,19 +1,19 @@
-FROM alpine:3.7
-MAINTAINER GoCD Contributors <go-cd-dev@googlegroups.com>
+# SPDX-FileCopyrightText: 2022 SAP SE or an SAP affiliate company and CLA-assistant contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+FROM node:16-alpine
 
 EXPOSE 5000
+
+RUN addgroup -S license-assistant
+RUN adduser -S -D -G license-assistant license-assistant
 
 COPY . /license-assistant
 WORKDIR /license-assistant
 
-RUN \
-  apk add --update nodejs su-exec git curl bzip2 patch make g++ && \
-  addgroup -S license-assistant && \
-  adduser -S -D -G license-assistant license-assistant && \
-  chown -R license-assistant:license-assistant /license-assistant && \
-  su-exec license-assistant /bin/sh -c 'cd /license-assistant && npm install && node_modules/grunt-cli/bin/grunt build && rm -rf /home/license-assistant/.npm .git' && \
-  apk del git curl bzip2 patch make g++ && \
-  rm -rf /var/cache/apk/*
+RUN npm install && npm run build && npm prune --production
 
 USER license-assistant
-CMD npm start
+
+CMD ["npm", "start"]

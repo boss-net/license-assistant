@@ -13,8 +13,8 @@ global.config = require('../../../server/src/config')
 // service
 const url = require('../../../server/src/services/url')
 
-describe('url:baseUrl', () => it('should by default be http://cla-assistant.io', async () => {
-    assert.equal(url.baseUrl, 'http://cla-assistant.io')
+describe('url:baseUrl', () => it('should by default be http://boss-net.github.io/license-assistant', async () => {
+    assert.equal(url.baseUrl, 'http://boss-net.github.io/license-assistant')
     // done();
 }))
 
@@ -66,9 +66,9 @@ describe('url:githubPullRequestCommits', () => it('should by default be https://
         'https://api.github.com/repos/owner/repo/pulls/1/commits')
 }))
 
-describe('url:pullRequestBadge', () => it('should by default be http://cla-assistant.io/pull/badge/signed', async () => {
+describe('url:pullRequestBadge', () => it('should by default be http://boss-net.github.io/license-assistant/pull/badge/signed', async () => {
     assert.equal(url.pullRequestBadge(true),
-        'http://cla-assistant.io/pull/badge/signed')
+        'http://boss-net.github.io/license-assistant/pull/badge/signed')
 }))
 
 describe('url:githubPullRequestComments', () => it('should by default be http://api.github.com/repos/:owner/:repo/issues/:number/comments', async () => {
@@ -77,14 +77,14 @@ describe('url:githubPullRequestComments', () => it('should by default be http://
 }))
 
 describe('url:claURL', () => {
-    it('should by default be http://cla-assistant.io/:owner/:repo', async () => {
+    it('should by default be http://boss-net.github.io/license-assistant/:owner/:repo', async () => {
         assert.equal(url.claURL('owner', 'repo'),
-            'http://cla-assistant.io/owner/repo')
+            'http://boss-net.github.io/license-assistant/owner/repo')
     })
 
-    it('should be http://cla-assistant.io/:owner/:repo?pullRequest=:number if number provided', async () => {
+    it('should be http://boss-net.github.io/license-assistant/:owner/:repo?pullRequest=:number if number provided', async () => {
         assert.equal(url.claURL('owner', 'repo', 1),
-            'http://cla-assistant.io/owner/repo?pullRequest=1')
+            'http://boss-net.github.io/license-assistant/owner/repo?pullRequest=1')
     })
 })
 

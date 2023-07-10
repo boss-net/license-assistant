@@ -181,7 +181,7 @@ describe('pullRequest:badgeComment', () => {
         logger.warn.restore()
     })
 
-    it('should create comment with cla-assistant user', async () => {
+    it('should create comment with license-assistant user', async () => {
         direct_call_data = []
         assertionFunction = async (args) => {
             assert.equal(args.fun, 'createComment')
@@ -201,7 +201,7 @@ describe('pullRequest:badgeComment', () => {
         assert(!logger.warn.called)
     })
 
-    it('should edit comment with cla-assistantio user token', async () => {
+    it('should edit comment with license-assistantio user token', async () => {
         direct_call_data = testDataComments_withLICENSEComment
         assertionFunction = async (args) => {
             assert.equal(args.fun, 'updateComment')
