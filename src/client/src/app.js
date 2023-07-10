@@ -1,4 +1,8 @@
-var module = angular.module('app', ['license.filters',
+// SPDX-FileCopyrightText: 2022 SAP SE or an SAP affiliate company and LICENSE-assistant contributors
+//
+// SPDX-License-Identifier: Apache-2.0
+
+var module = angular.module('app', ['cla.filters',
     'ui.utils',
     'ui.router',
     'ui.bootstrap',
@@ -9,7 +13,7 @@ var module = angular.module('app', ['license.filters',
     'ngCsv'
 ]);
 // eslint-disable-next-line no-unused-vars
-var filters = angular.module('license.filters', []);
+var filters = angular.module('cla.filters', []);
 
 // *************************************************************
 // Delay start
@@ -24,8 +28,8 @@ angular.element(document).ready(function () {
 // States
 // *************************************************************
 
-module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$compileProvider', '$qProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $compileProvider) {
 
         $stateProvider
             //
@@ -33,7 +37,7 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             //
             .state('home', {
                 url: '/',
-                templateUrl: '/templates/home.html',
+                templateUrl: '/assets/templates/home.html',
                 controller: 'HomeCtrl'
             })
 
@@ -42,7 +46,7 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             //
             .state('home.settings', {
                 // url: '/detail/:user/:repo',
-                templateUrl: '/templates/settings.html',
+                templateUrl: '/assets/templates/settings.html',
                 controller: 'SettingsCtrl',
                 params: {
                     'user': {},
@@ -54,19 +58,19 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             })
 
             //
-            // My-License state
+            // My-LICENSE state
             //
-            .state('license', {
+            .state('cla', {
                 abstract: true,
-                url: '/my-license',
+                url: '/my-cla',
                 template: '<section ui-view></section>'
             })
 
 
-            .state('license.myLicense', {
+            .state('cla.myCla', {
                 url: '',
-                templateUrl: '/templates/my-license.html',
-                controller: 'MyLicenseCtrl'
+                templateUrl: '/assets/templates/my-cla.html',
+                controller: 'MyClaCtrl'
             })
 
             //
@@ -79,12 +83,12 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             })
 
             //
-            // Repo license
+            // Repo cla
             //
-            .state('repo.license', {
+            .state('repo.cla', {
                 url: '',
-                templateUrl: '/templates/license.html',
-                controller: 'LicenseController'
+                templateUrl: '/assets/templates/cla.html',
+                controller: 'ClaController'
             })
 
             //
@@ -92,7 +96,7 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             //
             .state('404', {
                 url: '/404',
-                templateUrl: '/templates/404.html'
+                templateUrl: '/assets/templates/404.html'
             });
 
         $urlRouterProvider.otherwise('/404');
@@ -101,5 +105,6 @@ module.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             enabled: true,
             requireBase: false
         });
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob|chrome-extension|data):/);
     }
 ]);

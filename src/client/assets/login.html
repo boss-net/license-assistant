@@ -1,7 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2022 SAP SE or an SAP affiliate company and LICENSE-assistant contributors
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <html>
 
 <head>
-    <title>License assistant</title>
+    <title>License Assistant</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/">
@@ -25,11 +31,11 @@
     </style>
 
     <!-- APP -->
-    <script src="app.min.js"></script>
+    <script src="/dist/app.min.js"></script>
 
 
     <script>
-        AdobeEdge.loadComposition('assets/js/CLA_signature_MouseOver', 'EDGE-110781156', {
+        AdobeEdge.loadComposition('assets/js/LICENSE_signature_MouseOver', 'EDGE-110781156', {
             scaleToFit: "none",
             centerStage: "none",
             minW: "0",
@@ -48,7 +54,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css">
     <!-- APP STYLESHEET -->
-    <link href="/assets/styles/app.css" rel="stylesheet">
+    <link href="/dist/app.css" rel="stylesheet">
 </head>
 
 <body ng-controller="HomeCtrl">
@@ -62,7 +68,7 @@
             <!-- Header -->
             <div class="lp-header">
                 <a class="navbar-brand" href="/">
-                    <img src="/assets/images/CLA_logo.svg" class="img-responsive" alt="CLA assistant" style="width:55px" />
+                    <img src="/assets/images/LICENSE_logo.svg" class="img-responsive" alt="License Assistant" style="width:55px" />
                 </a>
                 <a class="lp-signin text-invert" href="" ng-click="logAdminIn()" target="_self">
                     <b>Sign in</b>
@@ -71,9 +77,9 @@
             <!-- Header -->
 
             <div class="row lp-premium lp-section">
-                <img class="center-block img-responsive" src="/assets/images/CLA_text.svg" style="width:200px">
+                <img class="center-block img-responsive" src="/assets/images/LICENSE_text.svg" style="width:200px">
                 <div class="center-block" style="font-size:25px;font-weight:200;line-height:36px; margin-top:30px;">
-                    <p>Easily handle Contributor License Agreements (CLAs)</p>
+                    <p>Easily handle Contributor License Agreements (LICENSEs)</p>
                     <btn class="btn btn-md btn-primary" ng-click="logAdminIn()" style="margin-top:20px; width:195px; font-size: 16px">
                         <span class="octicon octicon-mark-github"></span>&nbsp;Sign in with GitHub</btn>
                 </div>
@@ -92,11 +98,11 @@
                     <div class="feature-col center-block">
                         <div feature id="feature1" icon-src="/assets/images/feature1.svg" header="Authentication" text="Sign in with your GitHub account"
                             style="display: inline-block; "></div>
-                        <div feature id="feature2" icon-src="/assets/images/feature2.svg" header="Integration" text="CLA assistant notifies you about new contributions via GitHub pull requests"
+                        <div feature id="feature2" icon-src="/assets/images/feature2.svg" header="Integration" text="License Assistant notifies you about new contributions via GitHub pull requests"
                             style="display: inline-block;"></div>
-                        <div feature id="feature3" icon-src="/assets/images/feature3.svg" header="Status updates" text="CLA assistant updates the status of pull requests when a contributor signs your CLA"
+                        <div feature id="feature3" icon-src="/assets/images/feature3.svg" header="Status updates" text="License Assistant updates the status of pull requests when a contributor signs your LICENSE"
                             style="display: inline-block;"></div>
-                        <div feature id="feature4" icon-src="/assets/images/feature4.svg" header="Review" text="Review and export the list of contributors who have signed your CLA"
+                        <div feature id="feature4" icon-src="/assets/images/feature4.svg" header="Review" text="Review and export the list of contributors who have signed your LICENSE"
                             style="display: inline-block;"></div>
                     </div>
                 </div>
@@ -105,7 +111,7 @@
 
             <div class="row lp-premium-darker lp-section">
                 <div class="center-block">
-                    <p>Hassle-free CLA signing
+                    <p>Hassle-free LICENSE signing
                         <br>
                     </p>
                 </div>
@@ -113,10 +119,10 @@
                 <div class="center-block" style="font-size:18px">
                     <ol style="padding: 0; list-style-position: inside;">
                         <li>Create a pull request</li>
-                        <li>Click to accept the repository's CLA</li>
+                        <li>Click to accept the repository's LICENSE</li>
                     </ol>
                     <p>That's it, for real!</p>
-                    <!--<btn class="btn btn-md btn-primary" ng-click="logAdminIn()" style="margin-top:20px; width:195px; font-size: 16px"><span class="octicon octicon-mark-github"></span>&nbsp;My signed CLAs</btn> -->
+                    <!--<btn class="btn btn-md btn-primary" ng-click="logAdminIn()" style="margin-top:20px; width:195px; font-size: 16px"><span class="octicon octicon-mark-github"></span>&nbsp;My signed LICENSEs</btn> -->
                 </div>
             </div>
 
@@ -128,7 +134,7 @@
                     <p class="lp-textblock" ng-class="{true:'lp-textblock-animate', false:''}[active === 0]">
                         <i class="octicon octicon-repo"></i> {{numberRepos}} registered repositories</p>
                     <p class="lp-textblock" ng-class="{true:'lp-textblock-animate', false:''}[active === 1]">
-                        <img src="/assets/images/CLA_logo.svg" class="lp-textblock-icon" /> {{numberClas}} signed CLAs</p>
+                        <img src="/assets/images/LICENSE_logo.svg" class="lp-textblock-icon" /> {{numberClas}} signed LICENSEs</p>
                     <p class="lp-textblock" ng-class="{true:'lp-textblock-animate', false:''}[active === 2]">
                         <i class="octicon octicon-star"></i> {{numberStars}} GitHub stars</p>
                 </div>
@@ -137,7 +143,7 @@
             <div class="row lp-white lp-section">
                 <div class="center-block">
                     <h4>HOW IT WORKS</h4>
-                    <p>Put your CLA into a
+                    <p>Put your LICENSE into a
                         <a href="https://gist.github.com" target="_blank">Gist</a>, and link it to a repository</p>
                 </div>
 
@@ -149,11 +155,11 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4">
                         <div class="how-to-align how-to-align-left" style="font-size: 24px; color:#009245; margin-top:1em;">
-                            SAVE YOUR CLA IN A GIST
+                            SAVE YOUR LICENSE IN A GIST
                         </div>
                         <div class="how-to-align how-to-align-left" style="font-size: 18px;">
                             At
-                            <a href="https://gist.github.com" target="_blank">gist.github.com</a> enter a title and text for your CLA, and create your Gist.
+                            <a href="https://gist.github.com" target="_blank">gist.github.com</a> enter a title and text for your LICENSE, and create your Gist.
                         </div>
                     </div>
                 </div>
@@ -169,7 +175,7 @@
                             SELECT A REPOSITORY
                         </div>
                         <div class="how-to-align how-to-align-right" style="font-size: 18px;">
-                            Select a repository where you need to manage contributions with a CLA.
+                            Select a repository where you need to manage contributions with a LICENSE.
                         </div>
                     </div>
                 </div>
@@ -185,7 +191,7 @@
                             LINK THEM
                         </div>
                         <div class="how-to-align how-to-align-left" style="font-size: 18px;">
-                            Now just link that repository to your CLA.
+                            Now just link that repository to your LICENSE.
                         </div>
                     </div>
                 </div>
@@ -202,7 +208,7 @@
                         </div>
                         <div class="how-to-align how-to-align-right" style="font-size: 18px; ">
                             That's it.
-                            <br>CLA assistant will do the rest for you.
+                            <br>License Assistant will do the rest for you.
                         </div>
                     </div>
                 </div>
@@ -223,7 +229,7 @@
                     <h4>YOUR FEEDBACK</h4>
                     <p style="font-size: 18px;">Do you have any feedback (bug reports, enhancements) or do you even want to contribute?
                         <br>You are very welcome to provide your feedback, please check out our
-                        <a href="https://github.com/boss-net/license-assistant/blob/master/CONTRIBUTING.md" target="_blank" style="text-decoration: underline;">contribution guidelines.</a>
+                        <a href="https://github.com/boss-net/license-assistant/blob/main/CONTRIBUTING.md" target="_blank" style="text-decoration: underline;">contribution guidelines.</a>
                     </p>
                 </div>
             </div>
@@ -241,14 +247,11 @@
                 <div class="container-fluid">
                     <div class="center-block">
                         <div class="navbar-text navbar-left">
-                            <p style="margin-bottom: 0px">© 2015 SAP SE</p>
+                            <p style="margin-bottom: 0px">© 2022 SAP SE</p>
                         </div>
                     </div>
-                    <div class="navbar-text navbar-center" style="z-index:-1;">
-                        <p class="hidden-xs hidden-sm">
-                            Made with
-                            <span class="octicon octicon-heart"></span> from the GitHub team at SAP
-                        </p>
+                    <div class="navbar-text navbar-center hidden-xs hidden-sm" style="z-index:-1; padding-bottom: 5px;">
+                        Powered by the open source LICENSE-assistant project
                     </div>
                     <div class="center-block">
                         <div class="navbar-text navbar-right">
@@ -259,7 +262,7 @@
                     </div>
                     <div class="center-block">
                         <div class="navbar-text navbar-right">
-                            <a href="https://gist.github.com/CLAassistant/3a73e4cd729c9d0a6e30" target="space" style="margin-right: 10px">
+                            <a href="https://gist.github.com/LICENSEassistant/3a73e4cd729c9d0a6e30" target="space" style="margin-right: 10px">
                                 Terms of Service &amp Privacy Policy
                             </a>
                         </div>
