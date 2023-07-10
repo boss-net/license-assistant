@@ -1,0 +1,5 @@
+applications:
+- name: license-assistant-staging
+  services:
+  - license-staging-env
+  - my-logs
