@@ -36,7 +36,7 @@ jobs:
           ref: ${{ github.event.inputs.ref }}
 
       - name: Use specified node version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           version: ${{ matrix.node_version }}
       - name: Npm Install
